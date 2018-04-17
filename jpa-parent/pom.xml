@@ -32,7 +32,27 @@
 
     <name>Apache Aries JPA parent</name>
     <packaging>pom</packaging>
-    
+
+    <scm>
+        <connection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</connection>
+        <developerConnection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</developerConnection>
+        <url>https://github.com/seeburger-ag/aries-jpa</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>${release.repository.id}</id>
+            <name>Apache Release Distribution Repository</name>
+            <url>${release.repository.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${snapshot.repository.id}</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>${snapshot.repository.url}</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
     <properties>
         <baseline>2.3.0</baseline>
         <baseline.skip>false</baseline.skip>
@@ -239,7 +259,7 @@
             </plugin>
         </plugins>
     </build>
-    
+
     <repositories>
         <repository>
             <id>OSGi-spec-snapshots</id>
