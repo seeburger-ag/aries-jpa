@@ -95,7 +95,27 @@ public class PersistenceUnitParser {
     }
 
     private static void parse(Bundle bundle, InputStream is, Collection<PersistenceUnit> punits) {
-        SAXParserFactory parserFactory = SAXParserFactory.newInstance();
+        SAXParserFactory parserFactory;
+        try {
+            parserFactory = SAXParserFactory.newInstance();
+            LOG.debug("SAXParserFactory loaded via newInstance");
+        } catch (Throwable t) {
+            // possible FactoryConfigurationError
+            // try with setting TCCL and System-CL
+            final Thread currentThread = Thread.currentThread();
+            ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+            try {
+                currentThread.setContextClassLoader(PersistenceUnitParser.class.getClassLoader());
+                parserFactory = SAXParserFactory.newInstance();
+                LOG.info("SAXParserFactory loaded via TCCL after " + t.toString());
+            } catch (Throwable t2) {
+                currentThread.setContextClassLoader(ClassLoader.getSystemClassLoader());
+                parserFactory = SAXParserFactory.newInstance();
+                LOG.info("SAXParserFactory loaded via SystemClassLoader after " + t2.toString());
+            } finally {
+                currentThread.setContextClassLoader(contextClassLoader);
+            }
+        }
         try {
             SAXParser parser = parserFactory.newSAXParser();
             JPAHandler handler = new JPAHandler(bundle);
