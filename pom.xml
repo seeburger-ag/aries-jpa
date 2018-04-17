@@ -35,12 +35,26 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
     <scm>
-        <connection>scm:svn:http://svn.apache.org/repos/asf/aries/trunk/jpa</connection>
-        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/aries/trunk/jpa</developerConnection>
-        <url>http://svn.apache.org/viewvc/aries/trunk/jpa</url>
+        <connection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</connection>
+        <developerConnection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</developerConnection>
+        <url>https://github.com/seeburger-ag/aries-jpa</url>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>${release.repository.id}</id>
+            <name>Apache Release Distribution Repository</name>
+            <url>${release.repository.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${snapshot.repository.id}</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>${snapshot.repository.url}</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 
     <modules>
         <module>jpa-parent</module>

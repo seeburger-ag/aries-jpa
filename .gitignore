@@ -1,0 +1,10 @@
+# ignore .svn metadata files
+.svn
+# ignore Maven generated target folders
+~
+target
+# ignore eclipse files
+.project
+.classpath
+.settings
+.metadata
