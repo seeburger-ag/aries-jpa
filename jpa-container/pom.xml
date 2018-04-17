@@ -33,6 +33,12 @@
     <description>Implements the OSGi JPA Container from the enterprise spec. Provider a EntityManagerFactory and EntityManagerFactoryBuilder service</description>
     <packaging>bundle</packaging>
 
+    <scm>
+        <connection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</connection>
+        <developerConnection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</developerConnection>
+        <url>https://github.com/seeburger-ag/aries-jpa</url>
+    </scm>
+
     <repositories>
         <repository>
             <id>OSGi Public APIs</id>
