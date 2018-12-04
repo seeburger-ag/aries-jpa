@@ -28,6 +28,7 @@
 
     <artifactId>org.apache.aries.jpa.container</artifactId>
     <name>Apache Aries JPA container</name>
+    <version>2.7.1.SEE1-SNAPSHOT</version>
     <description>Implements the OSGi JPA Container from the enterprise spec. Provider a EntityManagerFactory and EntityManagerFactoryBuilder service</description>
     <packaging>bundle</packaging>
 
