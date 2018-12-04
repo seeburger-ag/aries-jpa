@@ -28,7 +28,7 @@
 
     <artifactId>org.apache.aries.jpa.container</artifactId>
     <name>Apache Aries JPA container</name>
-    <version>2.7.1.SEE1-SNAPSHOT</version>
+    <version>2.7.1.SEE1</version>
     <description>Implements the OSGi JPA Container from the enterprise spec. Provider a EntityManagerFactory and EntityManagerFactoryBuilder service</description>
     <packaging>bundle</packaging>
 
@@ -36,7 +36,7 @@
         <connection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</connection>
         <developerConnection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</developerConnection>
         <url>https://github.com/seeburger-ag/aries-jpa</url>
-      <tag>HEAD</tag>
+      <tag>org.apache.aries.jpa.container-2.7.1.SEE1</tag>
   </scm>
 
     <repositories>
