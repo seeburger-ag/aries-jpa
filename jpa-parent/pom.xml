@@ -28,11 +28,32 @@
 
     <groupId>org.apache.aries.jpa</groupId>
     <artifactId>org.apache.aries.jpa.parent</artifactId>
-    <version>2.7.1</version>
+    <version>2.7.1.SEE1</version>
 
     <name>Apache Aries JPA parent</name>
     <packaging>pom</packaging>
-    
+
+    <scm>
+        <connection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</connection>
+        <developerConnection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</developerConnection>
+        <url>https://github.com/seeburger-ag/aries-jpa</url>
+      <tag>HEAD</tag>
+  </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>${release.repository.id}</id>
+            <name>Apache Release Distribution Repository</name>
+            <url>${release.repository.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${snapshot.repository.id}</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>${snapshot.repository.url}</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
     <properties>
         <baseline>2.6.0</baseline>
         <baseline.skip>false</baseline.skip>
@@ -79,7 +100,22 @@
                 <artifactId>org.osgi.service.jpa</artifactId>
                 <version>1.1.0</version>
             </dependency>
-            
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jpa_2.0_spec</artifactId>
+                <version>1.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.0-api</artifactId>
+                <version>1.0.1.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.persistence</groupId>
+                <artifactId>javax.persistence</artifactId>
+                <version>2.1.0</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.geronimo.specs</groupId>
                 <artifactId>geronimo-jta_1.1_spec</artifactId>
@@ -225,6 +261,21 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>OSGi-spec-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/osgi/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>ignore</checksumPolicy>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
     <profiles>
         <profile>
             <id>rat</id>
@@ -282,8 +333,4 @@
             </build>
         </profile>
     </profiles>
-
-  <scm>
-    <tag>jpa-2.7.1</tag>
-  </scm>
 </project>

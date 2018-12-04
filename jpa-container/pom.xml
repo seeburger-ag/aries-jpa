@@ -22,14 +22,32 @@
     <parent>
         <groupId>org.apache.aries.jpa</groupId>
         <artifactId>org.apache.aries.jpa.parent</artifactId>
-        <version>2.7.1</version>
+        <version>2.7.1.SEE1</version>
         <relativePath>../jpa-parent</relativePath>
     </parent>
+
     <artifactId>org.apache.aries.jpa.container</artifactId>
     <name>Apache Aries JPA container</name>
     <description>Implements the OSGi JPA Container from the enterprise spec. Provider a EntityManagerFactory and EntityManagerFactoryBuilder service</description>
     <packaging>bundle</packaging>
-    
+
+    <scm>
+        <connection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</connection>
+        <developerConnection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</developerConnection>
+        <url>https://github.com/seeburger-ag/aries-jpa</url>
+      <tag>HEAD</tag>
+  </scm>
+
+    <repositories>
+        <repository>
+            <id>OSGi Public APIs</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>https://oss.sonatype.org/content/repositories/osgi/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -47,17 +65,18 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.aries.jpa.javax.persistence</groupId>
-            <artifactId>javax.persistence_2.0</artifactId>
-            <version>${version}</version>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_2.0_spec</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-    
+
     <build>
         <!-- This configuration makes sure that we backport
              the OSGi provided APIs to Java 1.6 class compatibility.
              Becuase of the way the maven-bundle-plugin works we must
              extract the JAR before we translate and slurp in the API -->
+             <!--
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -100,5 +119,6 @@
                 </executions>
             </plugin>
         </plugins>
+        -->
     </build>
 </project>
