@@ -29,12 +29,13 @@
     <name>Apache Aries JPA support</name>
     <description>Builds upon JPA container and provides EmSupplier and JPATemplate service per persistence unit. These make it easier to use EntityManager in a thread safe way</description>
     <packaging>bundle</packaging>
-    <version>2.7.1.SEE1-SNAPSHOT</version>
+    <version>2.7.1.SEE1</version>
     <scm>
         <connection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</connection>
         <developerConnection>scm:git:git@github.com:seeburger-ag/aries-jpa.git</developerConnection>
         <url>https://github.com/seeburger-ag/aries-jpa</url>
-    </scm>
+      <tag>org.apache.aries.jpa.support-2.7.1.SEE1</tag>
+  </scm>
 
     <dependencies>
         <dependency>
