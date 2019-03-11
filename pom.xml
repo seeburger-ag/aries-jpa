@@ -54,7 +54,7 @@
         <module>jpa-repository</module>
         <module>examples</module>
         <module>jpa-features</module>
-        <module>itests</module>
+<!--         <module>itests</module> -->
     </modules>
 
     <build>
